@@ -16,7 +16,7 @@ for (let key of keys) {
 			input = input.slice(0, -1);
 			display_input.innerHTML = CleanInput(input);
 		} else if (value == "=") {
-			let result = eval(PerpareInput(input));
+			let result = eval(PrepareInput(input));
 
 			display_output.innerHTML = CleanOutput(result);
 		} else if (value == "brackets") {
@@ -37,6 +37,18 @@ for (let key of keys) {
 				input += ")";
 			}
 
+			display_input.innerHTML = CleanInput(input);
+		} else if (value == "sin") {
+			input += "Math.sin(";
+			display_input.innerHTML = CleanInput(input);
+		} else if (value == "cos") {
+			input += "Math.cos(";
+			display_input.innerHTML = CleanInput(input);
+		} else if (value == "tan") {
+			input += "Math.tan(";
+			display_input.innerHTML = CleanInput(input);
+		} else if (value == "log") {
+			input += "Math.log10(";
 			display_input.innerHTML = CleanInput(input);
 		} else {
 			if (ValidateInput(value)) {
@@ -112,7 +124,7 @@ function ValidateInput (value) {
 	return true;
 }
 
-function PerpareInput (input) {
+function PrepareInput (input) {
 	let input_array = input.split("");
 
 	for (let i = 0; i < input_array.length; i++) {
